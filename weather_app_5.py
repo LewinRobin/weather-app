@@ -88,10 +88,13 @@ def main():
     unit= st.selectbox("Select Temperature Unit",("Celsius", "Fahrenheit","Kelvin"))
     g_type=st.selectbox("Select Graph Type",("Line Graph","Bar Graph"))
     if st.button("Find"):
-        while city[-1]==" ":
-            city=city[0:-1]
-        while city[0]==" ":
-            city=city[1:]
+        if city=="":
+            pass
+        else:
+            while city[-1]==" "and city!=" ":
+                city=city[0:-1]
+            while city[0]==" " and city!=" ":
+                city=city[1:]
         weather=Weather(city, unit)
         general, temperature, icon, lat, lon, humidity, wind_speed = weather.find_current_weather()
         st.write("## Live Weather Conditions")
