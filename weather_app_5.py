@@ -99,6 +99,14 @@ def main():
     g_type = st.selectbox("Select Graph Type", ("Line Graph", "Bar Graph"))
     if st.button("Find"):
         city = city.strip()
+        # if city == "":
+        #     pass
+        # else:
+        #     while city[-1] == " " and city != " ":
+        #         city = city[0:-1]
+        #     while city[0] == " " and city != " ":
+        #         city = city[1:]
+        
         weather = Weather(city, unit)
         general, temperature, icon, lat, lon, humidity, wind_speed = weather.find_current_weather()
         st.write("## Live Weather Conditions")
@@ -156,4 +164,4 @@ def main():
 
 
 if __name__ == '__main__':
-    maint ()
+    main()
